@@ -6,6 +6,7 @@ services:
       context: ./
     ports:
       - 3000:3000/tcp
+      - 3001:3001/tcp
     command: bash /go/src/entrypoint.sh
   redis:
     image: redis

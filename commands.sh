@@ -32,4 +32,16 @@ test(){
 	echo
 }
 
+test2(){
+	curl -X POST   http://localhost:3001/tickets  -H 'Cache-Control: no-cache' -H 'Content-Type: application/json' -d '{
+	"creator" : "Joel",
+	"title" : "Test ticket",
+	"description" : "A test ticket",
+	"points": 5
+	}'
+
+	curl http://localhost:3001/tickets
+	echo
+}
+
 $@

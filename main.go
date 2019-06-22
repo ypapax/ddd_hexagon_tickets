@@ -22,6 +22,8 @@ import (
 func main() {
 
 	dbType := flag.String("database", "redis", "database type [redis, psql]")
+	var port int
+	flag.IntVar(&port, "port", 3000, "port to listen to")
 	flag.Parse()
 
 	var ticketRepo ticket.TicketRepository
@@ -51,8 +53,9 @@ func main() {
 
 	errs := make(chan error, 2)
 	go func() {
-		fmt.Println("Listening on port :3000")
-		errs <- http.ListenAndServe(":3000", nil)
+		portStr := fmt.Sprintf(":%d", port)
+		fmt.Println("Listening on port " + portStr)
+		errs <- http.ListenAndServe(portStr, nil)
 	}()
 	go func() {
 		c := make(chan os.Signal, 1)
