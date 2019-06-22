@@ -9,3 +9,8 @@ services:
     command: bash /go/src/entrypoint.sh
   redis:
     image: redis
+  postgres:
+    image: postgres
+    container_name: postgres-hex
+    volumes:
+      - ./database/psql/init.sql:/docker-entrypoint-initdb.d/init.sql

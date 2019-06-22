@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 set -ex
 
-ls $GOPATH/bin
-ddd_hexagon_tickets
+#ddd_hexagon_tickets --database redis
+ddd_hexagon_tickets --database psql

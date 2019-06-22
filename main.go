@@ -28,7 +28,7 @@ func main() {
 
 	switch *dbType {
 	case "psql":
-		pconn := postgresConnection("postgresql://postgres@localhost/ticket?sslmode=disable")
+		pconn := postgresConnection("postgresql://postgres@postgres/ticket?sslmode=disable")
 		defer pconn.Close()
 		ticketRepo = psql.NewPostgresTicketRepository(pconn)
 	case "redis":
