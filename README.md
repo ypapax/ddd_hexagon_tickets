@@ -5,3 +5,5 @@ https://www.joeldholmes.com/post/go-hex-arch/
 
 # Test
 ./commands.sh test
+
+./commands.sh test2
