@@ -1,0 +1,11 @@
+version: "3.5"
+
+services:
+  app:
+    build:
+      context: ./
+    ports:
+      - 3000:3000/tcp
+    command: bash /go/src/entrypoint.sh
+  redis:
+    image: redis
